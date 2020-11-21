@@ -1,0 +1,102 @@
+# Copyright 2018 Huawei Technologies Co., Ltd.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+open_cli_schema_version: 1.0
+name: sample-test
+description: Oclip sample command to test the command features
+info:
+  product: open-cli
+  service: test
+  type: cmd
+  author: Kanagaraj Manickam kanagaraj.manickam@huawei.com
+
+parameters:
+  - name: bool-param
+    type: bool
+    description: Oclip boolean param, by default its always false.
+    short_option: b
+    long_option: bool
+    is_optional: true
+    default_value: false
+  - name: secure-param
+    type: string
+    description: Oclip secure param such as password
+    short_option: x
+    long_option: secure
+    is_secured: true
+    is_optional: true
+    default_Value: pass123#
+  - name: string-param
+    type: string
+    description: Oclip string param
+    long_option: string-param
+    short_option: c
+    is_optional: true
+    default_Value: test
+  - name: yaml-param
+    type: json
+    description: Oclip yaml file location param
+    long_option: yaml-param
+    short_option: y
+    is_optional: true
+  - name: json-param
+    type: json
+    description: Oclip json file location param
+    long_option: json-param
+    short_option: j
+    is_optional: true
+  - name: long-param
+    type: digit
+    description: Oclip long param
+    short_option: l
+    long_option: long-opt
+    is_optional: true
+    default_value: 10
+  - name: url-param
+    type: url
+    description: Oclip url param
+    short_option: r
+    long_option: url
+    is_optional: true
+    default_value: http://localhost:8082/file.txt
+  - name: env-param
+    type: string
+    description: Oclip env param.
+    short_option: z
+    long_option: env
+    is_optional: true
+    default_value: ${ENV_VAR}
+    default_value: http://localhost:8082/file.txt
+  - name: positional-args
+    type: string
+    description: Oclip positional args, if no short option and no long option given for it
+    is_optional: true
+    default_value: http://localhost:8082/file.txt
+  - name: text-param
+    type: text
+    description: Oclip text file location param
+    long_option: text-param
+    short_option: e
+    is_optional: true
+results:
+  direction: portrait
+  attributes:
+    - name: output-1
+      description: Oclip output attribute marked in short
+      scope: short
+      type: string
+    - name: output-2
+      description: Oclip output attribute marked in long
+      scope: short
+      type: string
