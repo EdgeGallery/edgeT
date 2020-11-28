@@ -49,7 +49,7 @@ swagger: '2.0'
 info:
   version: 1.0.0
   title: ''
-basePath: /v1/edegT
+basePath: /v1/vtp
 tags:
   - name: VTP Profile
   - name: VTP Scenario
