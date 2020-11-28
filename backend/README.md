@@ -5,7 +5,7 @@ How to build
 ------------
 
 ```
-./docker/build.sh
+./build.sh
 ```
 
 
