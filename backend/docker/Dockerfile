@@ -1,5 +1,21 @@
+#
+#   Copyright 2020 Huawei Technologies Co., Ltd.
+#
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#       http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+#
+
 FROM openjdk:11.0.6-jre-slim
-ARG  VTP_VERSION=LATEST
+ARG  VTP_VERSION=1.3.2
 
 ENV CATALINA_HOME=/opt/vtp \
     OCOMP_IP=localhost \
@@ -15,7 +31,7 @@ RUN apt-get update && apt-get install -y sudo zip wget && \
 USER edgeT
 
 RUN wget -O TOMCAT.tar.gz "https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.30/bin/apache-tomcat-8.5.30.tar.gz" && \
-    wget -O VTP.zip "https://nexus.onap.org/service/local/artifact/maven/redirect?r=releases&g=org.onap.vnfsdk.refrepo&a=vnf-sdk-marketplace&e=war&v=$VTP_VERSION" && \
+    wget -O VTP.zip "https://nexus.onap.org/content/repositories/releases/org/onap/vnfsdk/refrepo/vnf-sdk-marketplace/$VTP_VERSION/vnf-sdk-marketplace-$VTP_VERSION.war" && \
     mkdir -p $CATALINA_HOME && \
     tar --strip-components=1 -xf TOMCAT.tar.gz -C $CATALINA_HOME && \
     rm -rf $CATALINA_HOME/webapps && mkdir -p $CATALINA_HOME/webapps/ROOT && \
@@ -27,13 +43,6 @@ RUN wget -O TOMCAT.tar.gz "https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.
     echo 'export JAVA_OPTS="$JAVA_OPTS -Djava.security.egd=file:/dev/./urandom"' >> $CATALINA_HOME/bin/setenv.sh && \
     rm -rf TOMCAT.tar.gz VTP.zip
 
-RUN echo 'sed -i "s|vtp.grpc.server = localhost|vtp.grpc.server = ${OCOMP_IP}|g" $CATALINA_HOME/webapps/ROOT/WEB-INF/classes/vtp.properties' > $CATALINA_HOME/bin/start_vtp.sh
-
-RUN echo 'sed -i "s|vtp.grpc.port = 50051|vtp.grpc.server = ${OCOMP_PORT}|g" $CATALINA_HOME/webapps/ROOT/WEB-INF/classes/vtp.properties' >> $CATALINA_HOME/bin/start_vtp.sh
-
-RUN echo '$CATALINA_HOME/bin/startup.sh; tail -F $CATALINA_HOME/logs/*' >> $CATALINA_HOME/bin/start_vtp.sh
-RUN sudo chmod +x $CATALINA_HOME/bin/start_vtp.sh
-
 EXPOSE 8080
 
-ENTRYPOINT $CATALINA_HOME/bin/start_vtp.sh
+ENTRYPOINT $CATALINA_HOME/bin/startup.sh; tail -F $CATALINA_HOME/logs/*

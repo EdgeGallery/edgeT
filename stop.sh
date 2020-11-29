@@ -14,6 +14,6 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 #
-export FILE=$(dirname "$0")/docker/Dockerfile
 
-docker build -t edgegallery/edget-be --build-arg=VTP_VERSION=1.6.1 -f "$FILE" .
+docker stop edget-tester edget-controller
+docker rm -f edget-tester edget-controller
