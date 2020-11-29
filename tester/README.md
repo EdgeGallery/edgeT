@@ -1,5 +1,5 @@
-EdgeT Tester
-============
+EdgeT Tester - Test Executor
+==============================
 
 How to build
 ------------
