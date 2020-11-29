@@ -1,5 +1,5 @@
-EdgeT Backend
-=============
+EdgeT Backend - RESTful Controller
+==================================
 
 How to build
 ------------
