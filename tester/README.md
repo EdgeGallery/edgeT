@@ -1,9 +1,16 @@
-EdgeT Tester - Test Executor
-==============================
+EdgeT Tester
+============
 
 How to build
 ------------
 
 ```
-./build.sh
+./docker/build.sh
 ```
+
+How to build sample test case
+-------------------------------
+```
+./testcase/build.sh
+```
+

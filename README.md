@@ -28,7 +28,7 @@ Test suite is an logical entity helps to group the tests into hierarchy with the
 
 ## Test case
 
-Test case models the given real test case with required Inputs and Outputs. 
+Test case models the given real test case with required Inputs and Outputs.
 
 ## Execution
 
@@ -36,12 +36,18 @@ Execution models every execution of given test case with unique identifier
 
 ## Profile
 
-Profile models the System configurations and Pre-defined test case parameters. Ex: GSMA profile 
+Profile models the System configurations and Pre-defined test case parameters. Ex: GSMA profile
 
 
 # How to setup
 ```
-docker-compose up
+./build-all.sh
+
+./start.sh
+
+#to stop
+./stop.sh
+
 ```
 # RESTful
 ```
@@ -49,7 +55,7 @@ swagger: '2.0'
 info:
   version: 1.0.0
   title: ''
-basePath: /v1/vtp
+basePath: /v1/edegT
 tags:
   - name: VTP Profile
   - name: VTP Scenario
@@ -203,7 +209,7 @@ paths:
         - name: scenario
           in: body
           required: true
-          schema: 
+          schema:
             $ref: '#/definitions/VTPTestScenario'
       responses:
         '409':
@@ -213,7 +219,7 @@ paths:
         '500':
           description: Failed to perform the operation
           schema:
-            $ref: '#/definitions/VTPError' 
+            $ref: '#/definitions/VTPError'
   '/scenarios/{scenario}':
     get:
       tags:
@@ -261,7 +267,7 @@ paths:
         - in: body
           name: updatedScenario
           required: true
-          schema: 
+          schema:
             $ref: '#/definitions/VTPTestScenario'
       responses:
         '409':
@@ -308,7 +314,7 @@ paths:
       operationId: listTestSuites
       produces:
         - application/json
-      parameters: 
+      parameters:
         - name: scenario
           in: path
           description: Test scenario name
@@ -344,7 +350,7 @@ paths:
         - name: testsuite
           in: body
           required: true
-          schema: 
+          schema:
             $ref: '#/definitions/VTPTestSuite'
       responses:
         '409':
@@ -354,7 +360,7 @@ paths:
         '500':
           description: Failed to perform the operation
           schema:
-            $ref: '#/definitions/VTPError' 
+            $ref: '#/definitions/VTPError'
   '/scenarios/{scenario}/testsuites/{testsuite}':
     get:
       tags:
@@ -412,7 +418,7 @@ paths:
         - name: updatedTestSuite
           in: body
           required: true
-          schema: 
+          schema:
             $ref: '#/definitions/VTPTestSuite'
       responses:
         '409':
@@ -480,7 +486,7 @@ paths:
         '500':
           description: Failed to perform the operation
           schema:
-            $ref: '#/definitions/VTPError' 
+            $ref: '#/definitions/VTPError'
   '/scenarios/{scenario}/testsuites/{testsuite}/testcases':
     get:
       tags:
@@ -490,7 +496,7 @@ paths:
       operationId: listTestCases
       produces:
         - application/json
-      parameters: 
+      parameters:
         - name: scenario
           in: path
           description: Test scenario name
@@ -582,7 +588,7 @@ paths:
         '500':
           description: Failed to perform the operation
           schema:
-            $ref: '#/definitions/VTPError'  
+            $ref: '#/definitions/VTPError'
   '/scenarios/{scenario}/testcases':
     get:
       tags:
@@ -854,4 +860,3 @@ definitions:
   VTPMap:
     type: object
 ```
-

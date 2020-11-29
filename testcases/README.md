@@ -1,0 +1,3 @@
+# edgeT Test case guideline
+===========================
+

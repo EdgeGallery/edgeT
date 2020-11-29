@@ -1,9 +1,11 @@
-EdgeT Backend - RESTful Controller
-==================================
+EdgeT Backend
+=============
 
 How to build
 ------------
 
 ```
-./build.sh
+./docker/build.sh
 ```
+
+

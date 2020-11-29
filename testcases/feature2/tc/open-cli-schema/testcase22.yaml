@@ -1,0 +1,35 @@
+open_cli_schema_version: 1.0
+name: compliance-check-2
+description: |
+  Sample test case. Add all required input under parameters and outputs under results->attributes
+
+info:
+  product: edgeT
+  service: compliance
+  author: Kanag kanagaraj.manickam@huawei.com
+
+parameters:
+  - name: name
+    description: Name to print
+    type: string
+    short_option: x
+    long_option: name
+    default_value: test
+    is_optional: true
+
+results:
+  direction: portrait
+  attributes:
+    - name: output1
+      description: sample output 1
+      scope: short
+      type: string
+cmd:
+  command:
+    -  $s{env:OPEN_CLI_HOME}/script/tc-sample1.sh ${name}
+  success_codes:
+    - 0
+  working_directory: .
+  output: $stdout
+  result_map:
+    output1: Given name $o{$.name}
