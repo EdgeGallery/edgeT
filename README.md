@@ -9,11 +9,11 @@ A micro-services to manage, execute, run test cases (developed in different run-
 
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/1125/125248_4fc929ca_7639331.png "屏幕截图.png")
 
-## OCOMP - Test executor
+## Test executor
 
 It facilitates test flow execution and test case execution with agility, scalability in place. Every test case is modeled into YAML along with required implementation, which can be done with different scripting language like bash script, python script or programming languages like java.
 
-## VTP - RESTful controller
+## RESTful controller
 
 It provides the RESTful controller to manage test cases, test flow  and execute them.
 
@@ -55,7 +55,7 @@ swagger: '2.0'
 info:
   version: 1.0.0
   title: ''
-basePath: /v1/edegT
+basePath: /v1/vtp
 tags:
   - name: VTP Profile
   - name: VTP Scenario
@@ -195,116 +195,6 @@ paths:
           description: Failed to perform the operation
           schema:
             $ref: '#/definitions/VTPError'
-    post:
-      tags:
-        - VTP Scenario
-      summary: Create scenario.
-      description: 'Registare scenario in to system'
-      operationId: createScenario
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      parameters:
-        - name: scenario
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/VTPTestScenario'
-      responses:
-        '409':
-          description: Test scenario does already exist with given name
-          schema:
-            $ref: '#/definitions/VTPError'
-        '500':
-          description: Failed to perform the operation
-          schema:
-            $ref: '#/definitions/VTPError'
-  '/scenarios/{scenario}':
-    get:
-      tags:
-        - VTP Scenario
-      summary: ' Retrive given test scenarios'
-      description: ''
-      operationId: getTestScenario
-      produces:
-        - application/json
-      parameters:
-        - name: scenario
-          in: path
-          description: Test scenario name
-          required: true
-          type: string
-      responses:
-        '200':
-          description: successful operation
-          schema:
-            $ref: '#/definitions/VTPTestScenario'
-        '404':
-          description: Test scenario does not exist
-          schema:
-            $ref: '#/definitions/VTPError'
-        '500':
-          description: Failed to perform the operation
-          schema:
-            $ref: '#/definitions/VTPError'
-    put:
-      tags:
-        - VTP Scenario
-      summary: Update scenario.
-      description: 'Update scenario'
-      operationId: updateScenario
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      parameters:
-        - name: scenario
-          in: path
-          description: Test scenario name
-          required: true
-          type: string
-        - in: body
-          name: updatedScenario
-          required: true
-          schema:
-            $ref: '#/definitions/VTPTestScenario'
-      responses:
-        '409':
-          description: Test scenario does already exist with given name
-          schema:
-            $ref: '#/definitions/VTPError'
-        '404':
-          description: Test scenario does not exist
-          schema:
-            $ref: '#/definitions/VTPError'
-        '500':
-          description: Failed to perform the operation
-          schema:
-            $ref: '#/definitions/VTPError'
-    delete:
-      tags:
-        - VTP Scenario
-      summary: ' Delete given test scenarios'
-      description: ''
-      operationId: deleteTestScenario
-      parameters:
-        - name: scenario
-          in: path
-          description: Test scenario name
-          required: true
-          type: string
-      responses:
-        '200':
-          description: successful operation
-        '404':
-          description: Test scenario does not exist
-          schema:
-            $ref: '#/definitions/VTPError'
-        '500':
-          description: Failed to perform the operation
-          schema:
-            $ref: '#/definitions/VTPError'
   '/scenarios/{scenario}/testsuites':
     get:
       tags:
@@ -327,162 +217,6 @@ paths:
             type: array
             items:
               $ref: '#/definitions/VTPTestSuite'
-        '500':
-          description: Failed to perform the operation
-          schema:
-            $ref: '#/definitions/VTPError'
-    post:
-      tags:
-        - VTP Testsuite
-      summary: Create Test suite.
-      description: 'Registare Test suite in to system'
-      operationId: createTestSuite
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      parameters:
-        - name: scenario
-          in: path
-          description: Test scenario name
-          required: true
-          type: string
-        - name: testsuite
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/VTPTestSuite'
-      responses:
-        '409':
-          description: Test suite does already exist with given name
-          schema:
-            $ref: '#/definitions/VTPError'
-        '500':
-          description: Failed to perform the operation
-          schema:
-            $ref: '#/definitions/VTPError'
-  '/scenarios/{scenario}/testsuites/{testsuite}':
-    get:
-      tags:
-        - VTP Testsuite
-      summary: ' Retrive given test suite'
-      description: ''
-      operationId: getTestSuite
-      produces:
-        - application/json
-      parameters:
-        - name: scenario
-          in: path
-          description: Test scenario name
-          required: true
-          type: string
-        - name: testsuite
-          in: path
-          description: Test suite name
-          required: true
-          type: string
-      responses:
-        '200':
-          description: successful operation
-          schema:
-            $ref: '#/definitions/VTPTestSuite'
-        '404':
-          description: Test suite does not exist
-          schema:
-            $ref: '#/definitions/VTPError'
-        '500':
-          description: Failed to perform the operation
-          schema:
-            $ref: '#/definitions/VTPError'
-    put:
-      tags:
-        - VTP Testsuite
-      summary: Update test suite.
-      description: 'Update test suite'
-      operationId: updateTestsuite
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      parameters:
-        - name: scenario
-          in: path
-          description: Test scenario name
-          required: true
-          type: string
-        - name: testsuite
-          in: path
-          description: Test suite name
-          required: true
-          type: string
-        - name: updatedTestSuite
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/VTPTestSuite'
-      responses:
-        '409':
-          description: Test suite does already exist with given name
-          schema:
-            $ref: '#/definitions/VTPError'
-        '404':
-          description: Test suite does not exist
-          schema:
-            $ref: '#/definitions/VTPError'
-        '500':
-          description: Failed to perform the operation
-          schema:
-            $ref: '#/definitions/VTPError'
-    delete:
-      tags:
-        - VTP Testsuite
-      summary: 'Delete given test suite'
-      description: 'Delete given test suite'
-      operationId: deleteTestSuite
-      parameters:
-        - name: scenario
-          in: path
-          description: Test scenario name
-          required: true
-          type: string
-        - name: testsuite
-          in: path
-          description: Test suite name
-          required: true
-          type: string
-      responses:
-        '200':
-          description: successful operation
-        '404':
-          description: Test suite does not exist
-          schema:
-            $ref: '#/definitions/VTPError'
-        '500':
-          description: Failed to perform the operation
-          schema:
-            $ref: '#/definitions/VTPError'
-  '/testcases':
-    put:
-      tags:
-        - VTP Testcase
-      summary: Upload, Update and upgrate Test cases.
-      description: 'Upload Test cases in to system and system will discover the corresponding scenario and test suites and if they does not exist, then will create. if Test case already exist with given name, then system will update the correspoding test case binaries'
-      operationId: uploadTestCase
-      consumes:
-        - multipart/form-data
-      produces:
-        - application/json
-      parameters:
-        - name: testcase
-          in: formData
-          description: Test case File
-          required: true
-          type: file
-      responses:
-        '200':
-          description: Test case updated successfully
-          schema:
-            $ref: '#/definitions/VTPError'
         '500':
           description: Failed to perform the operation
           schema:
@@ -548,39 +282,6 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/VTPTestCase'
-        '404':
-          description: Test case does not exist
-          schema:
-            $ref: '#/definitions/VTPError'
-        '500':
-          description: Failed to perform the operation
-          schema:
-            $ref: '#/definitions/VTPError'
-    delete:
-      tags:
-        - VTP Testcase
-      summary: 'Delete given test case'
-      description: 'Delete given test case'
-      operationId: deleteTestCase
-      parameters:
-        - name: scenario
-          in: path
-          description: Test scenario name
-          required: true
-          type: string
-        - name: testsuite
-          in: path
-          description: Test suite name
-          required: true
-          type: string
-        - name: testcase
-          in: path
-          description: Test case name
-          required: true
-          type: string
-      responses:
-        '200':
-          description: successful operation
         '404':
           description: Test case does not exist
           schema:
