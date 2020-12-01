@@ -1,5 +1,4 @@
 # edgeT Test cases
-==================
 
 * [Test case Development guide](./docs/testcase-dev-guide.md)
 

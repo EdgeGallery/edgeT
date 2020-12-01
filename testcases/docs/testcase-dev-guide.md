@@ -64,9 +64,9 @@ produce the output in json.
 
 5. cmd.command - Test script and its mapping of arguments from the parameters
 defined in this yaml. Always write the script in this form
-$s{env:OPEN_CLI_HOME}/script/<script-name> , where script-name is relative path
+'$s{env:OPEN_CLI_HOME}/script/<script-name>'' , where script-name is relative path
 of test script kept under tc/script. For example, if script tc/script/f1/s1.sh then
-this entry should be $s{env:OPEN_CLI_HOME}/script/f1/s1.sh
+this entry should be ''$s{env:OPEN_CLI_HOME}/script/f1/s1.sh'
 
 ### Test case implementation
 
