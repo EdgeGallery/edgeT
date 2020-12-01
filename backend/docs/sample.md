@@ -1,6 +1,6 @@
 Execution
 ==========
-
+```
 curl --location --request POST 'http://localhost:8080/v1/vtp/executions?requestId=ebaa5f21-ed68-4098-97a9-775ac8800f09' --header 'Content-Type: multipart/form-data' --form 'executions=[{
   "scenario": "edgeT",
   "testSuiteName": "compliance",
@@ -15,7 +15,7 @@ curl --location --request POST 'http://localhost:8080/v1/vtp/executions?requestI
   "parameters": {
 "name": "demo1"
   }
-}]' | jq
+}]'
 
 [
   {
@@ -49,11 +49,13 @@ curl --location --request POST 'http://localhost:8080/v1/vtp/executions?requestI
     "endTime": "2020-11-29T15:21:55.107"
   }
 ]
-
+```
 
 Scenarios
 ==========
-curl http://localhost:8080/v1/vtp/scenarios | jq
+
+```
+curl http://localhost:8080/v1/vtp/scenarios
 [
   {
     "name": "edgeT",
@@ -64,7 +66,7 @@ curl http://localhost:8080/v1/vtp/scenarios | jq
 
 Test Suites
 ===========
-curl http://localhost:8080/v1/vtp/scenarios/edgeT/testsuites | jq
+curl http://localhost:8080/v1/vtp/scenarios/edgeT/testsuites
 [
   {
     "name": "compliance",
@@ -72,9 +74,12 @@ curl http://localhost:8080/v1/vtp/scenarios/edgeT/testsuites | jq
   }
 ]
 
+```
 Test cases
 ==========
-curl http://localhost:8080/v1/vtp/scenarios/edgeT/testcases | jq
+
+```
+curl http://localhost:8080/v1/vtp/scenarios/edgeT/testcases
 [
   {
     "testCaseName": "compliance-check-1",
@@ -89,11 +94,13 @@ curl http://localhost:8080/v1/vtp/scenarios/edgeT/testcases | jq
     "outputs": []
   }
 ]
-
+```
 
 Test Case
 ==========
-curl http://localhost:8080/v1/vtp/scenarios/edgeT/testsuites/compliance/testcases/compliance-check-1 | jq
+
+```
+curl http://localhost:8080/v1/vtp/scenarios/edgeT/testsuites/compliance/testcases/compliance-check-1
 {
   "testCaseName": "compliance-check-1",
   "testSuiteName": "compliance",
@@ -123,4 +130,4 @@ curl http://localhost:8080/v1/vtp/scenarios/edgeT/testsuites/compliance/testcase
     }
   ]
 }
-
+```
