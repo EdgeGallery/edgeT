@@ -14,7 +14,7 @@ Use 'stop.sh' scripts provided in the edgeT.
 
 ## How to test the test cases
 
-please refer [sample API test docs](../../backend/api-req-res-sample.md).
+please refer [sample API test docs](../../backend/docs/api-req-res-sample.md).
 Using this guide, following operations can be performed:
 
 1. List of available scenarios, test suites and test cases
