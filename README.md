@@ -7,7 +7,7 @@ A micro-services to manage, execute, run test cases (developed in different run-
 
 # Architecture
 
-![edgeT](./docs/arch.png)
+![edgeT](./docs/arch.PNG)
 
 ## Test executor
 
