@@ -43,7 +43,11 @@ Profile models the System configurations and Pre-defined test case parameters. E
 ```
 ./build-all.sh
 
+export TEST_NAME=feature2
 ./start.sh
+
+# to test
+./backend/test/test.sh
 
 #to stop
 ./stop.sh
