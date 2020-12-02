@@ -7,7 +7,7 @@ A micro-services to manage, execute, run test cases (developed in different run-
 
 # Architecture
 
-![输入图片说明](https://images.gitee.com/uploads/images/2020/1125/125248_4fc929ca_7639331.png "屏幕截图.png")
+![edgeT](./docs/arch.png)
 
 ## Test executor
 
