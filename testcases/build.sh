@@ -11,7 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-for f in `ls -l | grep ^d | awk '{print $9}'`; do
+for f in `ls -l | grep ^d | awk '{print $9}' | grep -v docs`; do
   cd $f
   chmod +x ./build.sh
   ./build.sh
