@@ -13,4 +13,8 @@
 
 export FILE=$(dirname "$0")/docker/Dockerfile
 
-docker build -t edgegallery/edget-be --build-arg=VTP_VERSION=1.6.1 -f "$FILE" .
+if [ -z $VTP_VERSION ]; then
+    VTP_VERSION=1.6.1
+fi
+
+docker build -t edgegallery/edget-be --build-arg=VTP_VERSION=$VTP_VERSION -f "$FILE" .
