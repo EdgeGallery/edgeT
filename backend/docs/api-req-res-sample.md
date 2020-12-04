@@ -50,8 +50,8 @@ curl http://localhost:8080/v1/vtp/scenarios/edgeT/testcases
 ]
 ```
 
-Test Case
-==========
+Find details of a Test Case
+=============================
 
 ```
 curl http://localhost:8080/v1/vtp/scenarios/edgeT/testsuites/compliance/testcases/compliance-check-1
