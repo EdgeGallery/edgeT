@@ -27,7 +27,7 @@ USER edgeT
 RUN wget -O OCOMP.zip "https://nexus.onap.org/content/repositories/releases/org/onap/cli/cli-zip/$OCOMP_VERSION/cli-zip-$OCOMP_VERSION.zip" && \
     unzip OCOMP.zip -d $OPEN_CLI_HOME && \
     rm -rf OCOMP.zip && \
-    mkdir -p $OPEN_CLI_HOME/data $OPEN_CLI_HOME/logs $OPEN_CLI_HOME/open-cli-schema $OPEN_CLI_HOME/workspace && \
+    mkdir -p $OPEN_CLI_HOME/data $OPEN_CLI_HOME/logs $OPEN_CLI_HOME/open-cli-schema /tmp/workspace && \
     rm -rf $OPEN_CLI_HOME/script/* && \
     chmod +x $OPEN_CLI_HOME/bin/*.sh && \
     ln -sf $OPEN_CLI_HOME/bin/oclip.sh /usr/local/bin/ocomp && \

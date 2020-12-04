@@ -17,5 +17,5 @@ fi
 
 docker volume create results
 docker volume create workspace
-docker run -d --name edget-tester --mount source=results,target=/opt/ocomp/data --mount source=workspace,target=/opt/ocomp/workspace --network=host  edgegallery/edget-$TEST_NAME-testcase:latest
-docker run -d --name edget-controller --mount source=results,target=/opt/vtp/data,readonly --mount source=workspace,target=/opt/vtp/workspace  --network=host edgegallery/edget-be:latest
+docker run -d --name edget-tester --mount source=results,target=/opt/ocomp/data --mount source=workspace,target=/tmp/workspace --network=host  edgegallery/edget-$TEST_NAME-testcase:latest
+docker run -d --name edget-controller --mount source=results,target=/opt/vtp/data,readonly --mount source=workspace,target=/tmp/workspace  --network=host edgegallery/edget-be:latest

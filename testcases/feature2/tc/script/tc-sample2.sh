@@ -11,6 +11,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-export BASE_DIR=$(dirname "$0")
-export FILE=$BASE_DIR/docker/Dockerfile
-docker build --no-cache -t edgegallery/edget-feature2-testcase -f "$FILE" .
+cat $1
