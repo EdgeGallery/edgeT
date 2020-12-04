@@ -39,19 +39,31 @@ Execution models every execution of given test case with unique identifier
 Profile models the System configurations and Pre-defined test case parameters. Ex: GSMA profile
 
 
-# How to setup
+# How to build
 ```
 ./build-all.sh
+```
 
+# How to install
+```
 export TEST_NAME=feature2
 ./start.sh
 
 # to test
 ./backend/test/test.sh
-
-#to stop
-./stop.sh
-
 ```
-# RESTful API
-[swagger api doc](./backend/docs/swagger.md)
+
+# How to uninstall
+```
+./stop.sh
+```
+
+# Docs
+
+* [swagger api](./backend/docs/swagger.md)
+
+* [Test case development guide](./testcases/docs/testcase-dev-guide.md)
+
+* [Test case deployment guide](./testcases/docs/testcase-dep-guide.md)
+
+* [Sample REST API](./backend/docs/api-req-res-sample.md)
