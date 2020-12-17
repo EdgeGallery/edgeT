@@ -66,4 +66,4 @@ export TEST_NAME=feature2
 
 * [Test case deployment guide](./testcases/docs/testcase-dep-guide.md)
 
-* [Sample REST API](./backend/docs/api-req-res-sample.md)
+* [Sample REST API](./backend/docs/api-req-res-sample.md )
