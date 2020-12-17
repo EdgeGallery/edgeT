@@ -10,6 +10,7 @@ cd $PWD/impl
 
 mvn clean install
 mvn assembly:assembly -DdescriptorId=jar-with-dependencies
+mkdir -p ../tc/script/compliance/lib
 
 cp target/impl-1.0-SNAPSHOT-jar-with-dependencies.jar ../tc/script/compliance/lib/
 
