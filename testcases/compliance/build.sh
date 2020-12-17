@@ -12,7 +12,6 @@ mvn clean install
 mvn assembly:assembly -DdescriptorId=jar-with-dependencies
 
 cp target/impl-1.0-SNAPSHOT-jar-with-dependencies.jar ../tc/script/compliance/lib/
-cp open-cli-schema/*.yaml ../tc/open-cli-schema/compliance/
 
 cd ../
 export BASE_DIR=$(dirname "$0")
