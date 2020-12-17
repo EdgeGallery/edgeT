@@ -1,0 +1,36 @@
+open_cli_schema_version: 1.0
+name: compliance-check-3
+description: |
+  MFContentTestCase test case.
+
+info:
+  product: EdgeGallery
+  service: compliance
+  author: sharath bs.reddy@huawei.com
+
+parameters:
+  - name: zipFilePath
+    description: zip File Path
+    type: string
+    short_option: x
+    long_option: zipFilePath
+    default_value: $s{env:OPEN_CLI_HOME}/script/compliance/enterprise2DC.csar
+    is_optional: false
+
+results:
+  direction: landscape
+  attributes:
+    - name: error_list
+      description: list of errors
+      scope: short
+      type: string
+
+cmd:
+  command:
+    -  java -cp $s{env:OPEN_CLI_HOME}/script/compliance/lib/impl-1.0-SNAPSHOT-jar-with-dependencies.jar org.eg.edgeT.SuffixTestCase ${zipFilePath} $s{tmp:result.json}
+  success_codes:
+    - 0
+  working_directory: .
+  output: $s{tmp:result.json}
+  result_map:
+    error_list: $o{$}
