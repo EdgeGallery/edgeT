@@ -1,13 +1,9 @@
 csar_file_path=$1
 result_json_path=$2
 
-if [[ -z $csar_file_path ]]; then
+ls $csar_file_path
+if [ $? -ne 0 ]; then
   echo "provide csar file path"
-  exit 1
-fi
-
-if [[ -f  $csar_file_path ]]; then
-  echo "File "$csar_file_path" doesn't exist"
   exit 1
 fi
 
