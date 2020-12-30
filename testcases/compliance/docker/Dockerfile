@@ -13,5 +13,5 @@
 from edgegallery/edget-tester:latest
 
 ADD ./tc $OPEN_CLI_HOME
-
+RUN sudo add-apt-repository ppa:deadsnakes/ppa -y; sudo apt install -y python gpg software-properties-common python3.7
 RUN sudo chmod -R +x $OPEN_CLI_HOME/script
