@@ -1,5 +1,5 @@
 open_cli_schema_version: 1.0
-name: compliance-check-5
+name: compliance-check-py
 description: |
   MFContentTestCase test case.
 
@@ -27,7 +27,7 @@ results:
 
 cmd:
   command:
-    -  $s{env:OPEN_CLI_HOME}/script/compliance/compliance.sh ${file} $s{tmp:result.json}
+    -  python3.7 $s{env:OPEN_CLI_HOME}/script/compliance/compliance.py ${file} $s{tmp:result.json}
   success_codes:
     - 0
   working_directory: .
