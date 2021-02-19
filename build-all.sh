@@ -11,6 +11,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+#Build Manager and postgres:#
+cd ./manager
+chmod +x ./build.sh
+./build.sh
+cd ..
+
 #edgegallery/edget-tester
 cd ./tester
 chmod +x ./build.sh

@@ -15,7 +15,10 @@ ARG  VTP_VERSION=1.6.1
 
 ENV CATALINA_HOME=/opt/vtp \
     OCOMP_IP=localhost \
-    OCOMP_PORT=50051
+    OCOMP_PORT=50051 \
+    MANAGER_IP=localhost \
+    MANAGER_PORT=9090 \
+    MODE=aio
 
 WORKDIR $CATALINA_HOME
 
@@ -42,4 +45,7 @@ RUN wget -O TOMCAT.tar.gz "https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.
 
 EXPOSE 8080
 
-ENTRYPOINT $CATALINA_HOME/bin/startup.sh; tail -F $CATALINA_HOME/logs/*
+ENTRYPOINT sed -i "s/vtp.manager.server.*/vtp.manager.server = $MANAGER_IP/g" $CATALINA_HOME/webapps/ROOT/WEB-INF/classes/vtp.properties; \
+sed -i "s/vtp.manager.port.*/vtp.manager.port = $MANAGER_PORT/g" $CATALINA_HOME/webapps/ROOT/WEB-INF/classes/vtp.properties; \
+sed -i "s/vtp.execution.mode.*/vtp.execution.mode = $MODE/g" $CATALINA_HOME/webapps/ROOT/WEB-INF/classes/vtp.properties; \
+$CATALINA_HOME/bin/startup.sh; tail -F $CATALINA_HOME/logs/*

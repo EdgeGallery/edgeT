@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Copyright 2020 Huawei Technologies Co., Ltd.
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -9,15 +11,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+export M_FILE=$(dirname "$0")/deployment/docker/manager/Dockerfile
+export P_FILE=$(dirname "$0")/deployment/docker/postgres/Dockerfile
 
-docker stop edget-controller
-docker rm -f edget-controller
-#cd manager/deployment/install/ ; docker-compose down; cd -
-docker stop edget-db edget-manager
-docker rm -f edget-db edget-manager
-tester_docker_indexes=`docker ps --filter name=edget* -aq`
+mvn clean install
+cp target/manager.war ./edgeT-manager.war
 
-if [[ $tester_docker_indexes != "" ]];then
-  echo $tester_docker_indexes | xargs docker stop | xargs docker rm
-fi
-docker volume rm results workspace
+docker build -t edgegallery/edget-postgres -f "$P_FILE" .
+docker build -t edgegallery/edget-manager -f "$M_FILE" .
