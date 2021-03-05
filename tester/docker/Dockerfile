@@ -12,12 +12,18 @@
 
 FROM openjdk:11.0.6-jre-slim
 ARG  OCOMP_VERSION=3.0.0
+COPY UploadTesterInfoToManager.py /
 
 ENV OPEN_CLI_HOME=/opt/ocomp \
-    OPEN_CLI_PRODUCT_IN_USE=open-cli
+    OPEN_CLI_PRODUCT_IN_USE=open-cli \
+    MANAGER_IP=127.0.0.1 \
+    MANAGER_PORT=9090 \
+    GRPC_IP="" \
+    GRPC_PORT="" \
+    MODE=aio
 
 WORKDIR $OPEN_CLI_HOME
-RUN apt-get update && apt-get install -y sudo zip wget && \
+RUN apt-get update && apt-get install -y sudo zip wget curl python3 && \
     groupadd -r edgeT && useradd -m --no-log-init -r -g edgeT edgeT && \
     usermod -aG sudo edgeT && echo "edgeT ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && chmod -R 777 /usr/local/ && \
     chown -R edgeT:edgeT $OPEN_CLI_HOME
@@ -35,4 +41,7 @@ RUN wget -O OCOMP.zip "https://nexus.onap.org/content/repositories/releases/org/
 
 EXPOSE 50051
 
-ENTRYPOINT $OPEN_CLI_HOME/bin/oclip-grpc-server.sh
+RUN echo "if [ \$MODE == "dist" ]; then python3 /UploadTesterInfoToManager.py \$MANAGER_IP \$MANAGER_PORT;fi" > $OPEN_CLI_HOME/start.sh && \
+    echo $OPEN_CLI_HOME/bin/oclip-grpc-server.sh >> $OPEN_CLI_HOME/start.sh
+
+CMD bash $OPEN_CLI_HOME/start.sh

@@ -10,14 +10,9 @@
 # limitations under the License.
 
 
-docker stop edget-controller
-docker rm -f edget-controller
-#cd manager/deployment/install/ ; docker-compose down; cd -
-docker stop edget-db edget-manager
-docker rm -f edget-db edget-manager
-tester_docker_indexes=`docker ps --filter name=edget* -aq`
+FROM postgres:9.4
+ENV POSTGRES_USER postgres
+ENV POSTGRES_PASSWORD 123 
+ADD manager_tables_postgres.sql  /docker-entrypoint-initdb.d
 
-if [[ $tester_docker_indexes != "" ]];then
-  echo $tester_docker_indexes | xargs docker stop | xargs docker rm
-fi
-docker volume rm results workspace
+
