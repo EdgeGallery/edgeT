@@ -9,6 +9,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+WORKSPACE=$PWD
 if [[ $MODE != "aio" && $MODE != "dist" ]]; then
   echo "Set MODE"
   echo "valid values are: aio, dist"
@@ -48,6 +49,8 @@ fi
 
 for testsuite in $TEST_NAME;
   do
-    docker run -d --name edget-$testsuite-tester --env MODE=$MODE $namager_details --mount source=results,target=/opt/ocomp/data --mount source=workspace,target=/tmp/workspace $network_cmd edgegallery/edget-$testsuite-testcase:latest
+    docker run -d --name edget-$testsuite-tester --env MODE=$MODE $namager_details \
+    --shm-size=1g \
+    --mount source=results,target=/opt/ocomp/data --mount source=workspace,target=/tmp/workspace $network_cmd edgegallery/edget-$testsuite-testcase:latest
   done
 docker run -d --name edget-controller --env MODE=$MODE $namager_details $port_cmd --mount source=results,target=/opt/vtp/data,readonly --mount source=workspace,target=/tmp/workspace $network_cmd edgegallery/edget-be:latest
