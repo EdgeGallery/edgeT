@@ -22,5 +22,5 @@ Mock HTTP server for edgeT
 4. Add required HTTP request response
 -------------------------------------
 
-Edit mock.json with required mock responses by following https://github.com/dreamhead/moco/blob/master/moco-doc/rest-apis.md
+Edit mock.json with required mock responses by following https://github.com/dreamhead/moco/blob/master/moco-doc/apis.md 
 
