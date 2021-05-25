@@ -1,8 +1,17 @@
-[
-  {
-    "response" :
+[{
+  "request": {
+    "uri": "/v1/vtp/scenarios"
+  },
+  "response": {
+    "json": [
       {
-        "text" : "Hello, Moco"
+        "name": "5G",
+        "description": "5G testing"
+      },
+      {
+        "name": "Compliance",
+        "description": "Compliance testing"
       }
+    ]
   }
-]
+}]
