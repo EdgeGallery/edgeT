@@ -1,17 +1,828 @@
 [{
   "request": {
+    "method" : "get",
     "uri": "/v1/vtp/scenarios"
   },
   "response": {
     "json": [
       {
-        "name": "5G",
-        "description": "5G testing"
+        "name": "edgeT",
+        "description": ""
       },
       {
-        "name": "Compliance",
-        "description": "Compliance testing"
+        "name": "EdgeGallery",
+        "description": ""
       }
     ]
+  }
+},
+{
+  "request": {
+    "method" : "get",
+    "uri": "/v1/vtp/executions"
+  },
+  "response": {
+    "json": [
+      {
+          "scenario": "EdgeGallery",
+          "testCaseName": "compliance-check-sh",
+          "testSuiteName": "testSuite0",
+          "executionId": "ebaa5f21-ed68-4098-97a9-775ac8800f09-1622027059843",
+          "requestId": "ebaa5f21-ed68-4098-97a9-775ac8800f09",
+          "parameters": {},
+          "results": {
+              "error": "unable to find execution results"
+          },
+          "status": "completed",
+          "startTime": "2021-05-26T11:04:19.888",
+          "endTime": "2021-05-26T11:04:28.668"
+      },
+      {
+          "scenario": "EdgeGallery",
+          "testCaseName": "compliance-check-py",
+          "testSuiteName": "compliance",
+          "executionId": "ebaa5f21-ed68-4098-97a9-775ac8800f09-1622027154839",
+          "requestId": "ebaa5f21-ed68-4098-97a9-775ac8800f09",
+          "parameters": {},
+          "results": {
+              "error": "unable to find execution results"
+          },
+          "status": "completed",
+          "startTime": "2021-05-26T11:05:54.835",
+          "endTime": "2021-05-26T11:06:03.643"
+      }
+    ]
+  }
+},
+{
+  "request": {
+    "method" : "get",
+    "uri": "/v1/vtp/executions/ebaa5f21-ed68-4098-97a9-775ac8800f09-1622027059843"
+  },
+  "response": {
+    "json": [
+      {
+        "scenario": "EdgeGallery",
+        "testCaseName": "compliance-check-sh",
+        "testSuiteName": "testSuite0",
+        "executionId": "ebaa5f21-ed68-4098-97a9-775ac8800f09-1622027059843",
+        "parameters": {
+            "file": "/tmp/workspace/enterprise2DC.csar",
+            "timeout": "60000"
+        },
+        "results": {
+            "error": "[{\"error_list\":{\"compliance-check-2\":[{\"error_list\":{\"valid\":\"false\",\"errors\":[{\"error_message\":\"inner exception, please check the log.\",\"error_code\":\"failed\",\"error_file\":\"error_file\",\"error_line_number\":\"0\"},{\"error_message\":\"\",\"error_code\":\"success\",\"error_file\":\"error_file\",\"error_line_number\":\"0\"}]}}],\"compliance-check-1\":[{\"error_list\":{\"valid\":\"false\",\"errors\":[{\"error_message\":\".mf file may not exist or it do not in the root directory.\",\"error_code\":\"failed\",\"error_file\":\"error_file\",\"error_line_number\":\"0\"}]}}],\"compliance-check-4\":[{\"error_list\":{\"valid\":\"false\",\"errors\":[{\"error_message\":\"inner exception, please check the log.\",\"error_code\":\"failed\",\"error_file\":\"error_file\",\"error_line_number\":\"0\"}]}}],\"compliance-check-3\":[{\"error_list\":{\"valid\":\"false\",\"errors\":[{\"error_message\":\"inner exception, please check the log.\",\"error_code\":\"failed\",\"error_file\":\"error_file\",\"error_line_number\":\"0\"}]}}]}}]"
+        },
+        "status": "completed",
+        "startTime": "2021-05-26T11:04:19.888",
+        "endTime": "2021-05-26T11:04:28.668"
+      }
+    ]
+  }
+},
+{
+  "request": {
+    "method" : "get",
+    "uri": "/v1/vtp/executions/ebaa5f21-ed68-4098-97a9-775ac8800f09-1622027154839"
+  },
+  "response": {
+    "json": [
+      {
+        "scenario": "EdgeGallery",
+        "testCaseName": "compliance-check-py",
+        "testSuiteName": "compliance",
+        "executionId": "ebaa5f21-ed68-4098-97a9-775ac8800f09-1622027154839",
+        "parameters": {
+            "file": "/tmp/workspace/enterprise2DC.csar",
+            "timeout": "60000"
+        },
+        "results": {
+            "error": "[{\"error_list\":{\"compliance-check-2\":[{\"error_list\":{\"valid\":false,\"errors\":[{\"error_message\":\"inner exception\",\"please check the log.,error_code\":\"failed\",\"error_file\":\"error_file\",\"error_line_number\":0},{\"error_message\":\"\",\"error_code\":\"success\",\"error_file\":\"error_file\",\"error_line_number\":0}]}}],\"compliance-check-1\":[{\"error_list\":{\"valid\":false,\"errors\":[{\"error_message\":\".mf file may not exist or it do not in the root directory.\",\"error_code\":\"failed\",\"error_file\":\"error_file\",\"error_line_number\":0}]}}],\"compliance-check-4\":[{\"error_list\":{\"valid\":false,\"errors\":[{\"error_message\":\"inner exception\",\"please check the log.,error_code\":\"failed\",\"error_file\":\"error_file\",\"error_line_number\":0}]}}],\"compliance-check-3\":[{\"error_list\":{\"valid\":false,\"errors\":[{\"error_message\":\"inner exception\",\"please check the log.,error_code\":\"failed\",\"error_file\":\"error_file\",\"error_line_number\":0}]}}]}}]"
+        },
+        "status": "completed",
+        "startTime": "2021-05-26T11:05:54.835",
+        "endTime": "2021-05-26T11:06:03.643"
+      }
+    ]
+  }
+},
+{
+  "request": {
+    "method" : "get",
+    "uri": "/v1/vtp/scenarios/EdgeGallery/testsuites"
+  },
+  "response": {
+    "json": [
+      {
+        "name": "compliance",
+        "description": ""
+      },
+      {
+        "name": "testSuite0",
+        "description": ""
+      }
+    ]
+  }
+},
+{
+  "request": {
+    "method" : "get",
+    "uri": "/v1/vtp/scenarios/edgeT/testsuites"
+  },
+  "response": {
+    "json": [
+      {
+        "name": "testSuite1",
+        "description": ""
+      },
+      {
+        "name": "testSuite2",
+        "description": ""
+      }
+    ]
+  }
+},
+{
+  "request": {
+    "method" : "get",
+    "uri": "/v1/vtp/scenarios/EdgeGallery/testcases"
+  },
+  "response": {
+    "json": [
+      {
+          "testCaseName": "compliance-check-py",
+          "testSuiteName": "compliance",
+          "inputs": [],
+          "outputs": []
+      },
+      {
+          "testCaseName": "compliance-check-java",
+          "testSuiteName": "compliance",
+          "inputs": [],
+          "outputs": []
+      },
+      {
+          "testCaseName": "compliance-check-sh",
+          "testSuiteName": "testSuite0",
+          "inputs": [],
+          "outputs": []
+      },
+      {
+          "testCaseName": "compliance-check-yml",
+          "testSuiteName": "testSuite0",
+          "inputs": [],
+          "outputs": []
+      }
+    ]
+  }
+},
+{
+  "request": {
+    "method" : "get",
+    "uri": "/v1/vtp/scenarios/edgeT/testcases"
+  },
+  "response": {
+    "json": [
+      {
+          "testCaseName": "compliance-check-1",
+          "testSuiteName": "testSuite1",
+          "inputs": [],
+          "outputs": []
+      },
+      {
+          "testCaseName": "compliance-check-12",
+          "testSuiteName": "testSuite1",
+          "inputs": [],
+          "outputs": []
+      },
+      {
+          "testCaseName": "compliance-check-2",
+          "testSuiteName": "testSuite2",
+          "inputs": [],
+          "outputs": []
+      },
+      {
+          "testCaseName": "compliance-check-22",
+          "testSuiteName": "testSuite2",
+          "inputs": [],
+          "outputs": []
+      }
+
+    ]
+  }
+},
+{
+  "request": {
+    "method" : "get",
+    "uri": "/v1/vtp/scenarios/EdgeGallery/testsuites/compliance/testcases/compliance-check-py"
+  },
+  "response": {
+    "json": [
+      {
+        "testCaseName": "compliance-check-py",
+        "testSuiteName": "compliance",
+        "description": "MFContentTestCase test case.",
+        "author": "sharath bs.reddy@huawei.com",
+        "inputs": [
+            {
+                "name": "file",
+                "description": "Name to json file having name entry in it.",
+                "type": "binary",
+                "defaultValue": "test",
+                "isOptional": true
+            },
+            {
+                "name": "timeout",
+                "description": "timeout for command to complete the given task in milliseconds",
+                "type": "string",
+                "defaultValue": "60000",
+                "isOptional": true
+            },
+            {
+                "name": "retrycount",
+                "description": "retry count for command",
+                "type": "digit",
+                "defaultValue": "1",
+                "isOptional": true
+            },
+            {
+                "name": "pushReportsToUrl",
+                "description": "push reports to url",
+                "type": "bool",
+                "defaultValue": "false",
+                "isOptional": true
+            },
+            {
+                "name": "reportsUrl",
+                "description": "url of reports",
+                "type": "url",
+                "defaultValue": "",
+                "isOptional": true
+            }
+        ],
+        "outputs": [
+            {
+                "name": "error_list",
+                "description": "list of errors",
+                "type": "string"
+            }
+        ]
+      }
+    ]
+  }
+},
+{
+  "request": {
+    "method" : "get",
+    "uri": "/v1/vtp/scenarios/EdgeGallery/testsuites/compliance/testcases/compliance-check-java"
+  },
+  "response": {
+    "json": [
+      {
+        "testCaseName": "compliance-check-java",
+        "testSuiteName": "compliance",
+        "description": "MFContentTestCase test case.",
+        "author": "sharath bs.reddy@huawei.com",
+        "inputs": [
+            {
+                "name": "file",
+                "description": "Name to json file having name entry in it.",
+                "type": "binary",
+                "defaultValue": "test",
+                "isOptional": true
+            },
+            {
+                "name": "timeout",
+                "description": "timeout for command to complete the given task in milliseconds",
+                "type": "string",
+                "defaultValue": "60000",
+                "isOptional": true
+            },
+            {
+                "name": "retrycount",
+                "description": "retry count for command",
+                "type": "digit",
+                "defaultValue": "1",
+                "isOptional": true
+            },
+            {
+                "name": "pushReportsToUrl",
+                "description": "push reports to url",
+                "type": "bool",
+                "defaultValue": "false",
+                "isOptional": true
+            },
+            {
+                "name": "reportsUrl",
+                "description": "url of reports",
+                "type": "url",
+                "defaultValue": "",
+                "isOptional": true
+            }
+        ],
+        "outputs": [
+            {
+                "name": "error_list",
+                "description": "list of errors",
+                "type": "string"
+            }
+        ]
+      }
+    ]
+  }
+},
+{
+  "request": {
+    "method" : "get",
+    "uri": "/v1/vtp/scenarios/EdgeGallery/testsuites/testSuite0/testcases/compliance-check-sh"
+  },
+  "response": {
+    "json": [
+      {
+        "testCaseName": "compliance-check-sh",
+        "testSuiteName": "testSuite0",
+        "description": "MFContentTestCase test case.",
+        "author": "sharath bs.reddy@huawei.com",
+        "inputs": [
+            {
+                "name": "file",
+                "description": "Name to json file having name entry in it.",
+                "type": "binary",
+                "defaultValue": "test",
+                "isOptional": true
+            },
+            {
+                "name": "timeout",
+                "description": "timeout for command to complete the given task in milliseconds",
+                "type": "string",
+                "defaultValue": "60000",
+                "isOptional": true
+            },
+            {
+                "name": "retrycount",
+                "description": "retry count for command",
+                "type": "digit",
+                "defaultValue": "1",
+                "isOptional": true
+            },
+            {
+                "name": "pushReportsToUrl",
+                "description": "push reports to url",
+                "type": "bool",
+                "defaultValue": "false",
+                "isOptional": true
+            },
+            {
+                "name": "reportsUrl",
+                "description": "url of reports",
+                "type": "url",
+                "defaultValue": "",
+                "isOptional": true
+            }
+        ],
+        "outputs": [
+            {
+                "name": "error_list",
+                "description": "list of errors",
+                "type": "string"
+            }
+        ]
+      }
+    ]
+  }
+},
+{
+  "request": {
+    "method" : "get",
+    "uri": "/v1/vtp/scenarios/EdgeGallery/testsuites/testSuite0/testcases/compliance-check-yml"
+  },
+  "response": {
+    "json": [
+      {
+        "testCaseName": "compliance-check-yml",
+        "testSuiteName": "testSuite0",
+        "description": "MFContentTestCase test case.",
+        "author": "sharath bs.reddy@huawei.com",
+        "inputs": [
+            {
+                "name": "file",
+                "description": "Name to json file having name entry in it.",
+                "type": "binary",
+                "defaultValue": "test",
+                "isOptional": true
+            },
+            {
+                "name": "timeout",
+                "description": "timeout for command to complete the given task in milliseconds",
+                "type": "string",
+                "defaultValue": "60000",
+                "isOptional": true
+            },
+            {
+                "name": "retrycount",
+                "description": "retry count for command",
+                "type": "digit",
+                "defaultValue": "1",
+                "isOptional": true
+            },
+            {
+                "name": "pushReportsToUrl",
+                "description": "push reports to url",
+                "type": "bool",
+                "defaultValue": "false",
+                "isOptional": true
+            },
+            {
+                "name": "reportsUrl",
+                "description": "url of reports",
+                "type": "url",
+                "defaultValue": "",
+                "isOptional": true
+            }
+        ],
+        "outputs": [
+            {
+                "name": "error_list",
+                "description": "list of errors",
+                "type": "string"
+            }
+        ]
+      }
+    ]
+  }
+},
+{
+  "request": {
+    "method" : "get",
+    "uri": "/v1/vtp/scenarios/edgeT/testsuites/testSuite1/testcases/compliance-check-1"
+  },
+  "response": {
+    "json": [
+      {
+        "testCaseName": "compliance-check-1",
+        "testSuiteName": "testSuite1",
+        "description": "MFContentTestCase test case.",
+        "author": "sharath bs.reddy@huawei.com",
+        "inputs": [
+            {
+                "name": "zipFilePath",
+                "description": "zip File Path",
+                "type": "string",
+                "defaultValue": "$s{env:OPEN_CLI_HOME}/script/compliance/enterprise2DC.csar",
+                "isOptional": false
+            },
+            {
+                "name": "timeout",
+                "description": "timeout for command to complete the given task in milliseconds",
+                "type": "string",
+                "defaultValue": "60000",
+                "isOptional": true
+            },
+            {
+                "name": "retrycount",
+                "description": "retry count for command",
+                "type": "digit",
+                "defaultValue": "1",
+                "isOptional": true
+            },
+            {
+                "name": "pushReportsToUrl",
+                "description": "push reports to url",
+                "type": "bool",
+                "defaultValue": "false",
+                "isOptional": true
+            },
+            {
+                "name": "reportsUrl",
+                "description": "url of reports",
+                "type": "url",
+                "defaultValue": "",
+                "isOptional": true
+            }
+        ],
+        "outputs": [
+            {
+                "name": "error_list",
+                "description": "list of errors",
+                "type": "string"
+            }
+        ]
+      }
+    ]
+  }
+},
+{
+  "request": {
+    "method" : "get",
+    "uri": "/v1/vtp/scenarios/edgeT/testsuites/testSuite1/testcases/compliance-check-12"
+  },
+  "response": {
+    "json": [
+      {
+        "testCaseName": "compliance-check-12",
+        "testSuiteName": "testSuite1",
+        "description": "MFContentTestCase test case.",
+        "author": "sharath bs.reddy@huawei.com",
+        "inputs": [
+            {
+                "name": "zipFilePath",
+                "description": "zip File Path",
+                "type": "string",
+                "defaultValue": "$s{env:OPEN_CLI_HOME}/script/compliance/enterprise2DC.csar",
+                "isOptional": false
+            },
+            {
+                "name": "timeout",
+                "description": "timeout for command to complete the given task in milliseconds",
+                "type": "string",
+                "defaultValue": "60000",
+                "isOptional": true
+            },
+            {
+                "name": "retrycount",
+                "description": "retry count for command",
+                "type": "digit",
+                "defaultValue": "1",
+                "isOptional": true
+            },
+            {
+                "name": "pushReportsToUrl",
+                "description": "push reports to url",
+                "type": "bool",
+                "defaultValue": "false",
+                "isOptional": true
+            },
+            {
+                "name": "reportsUrl",
+                "description": "url of reports",
+                "type": "url",
+                "defaultValue": "",
+                "isOptional": true
+            }
+        ],
+        "outputs": [
+            {
+                "name": "error_list",
+                "description": "list of errors",
+                "type": "string"
+            }
+        ]
+      }
+    ]
+  }
+},
+{
+  "request": {
+    "method" : "get",
+    "uri": "/v1/vtp/scenarios/edgeT/testsuites/testSuite2/testcases/compliance-check-2"
+  },
+  "response": {
+    "json": [
+      {
+        "testCaseName": "compliance-check-2",
+        "testSuiteName": "testSuite2",
+        "description": "MFContentTestCase test case.",
+        "author": "sharath bs.reddy@huawei.com",
+        "inputs": [
+            {
+                "name": "zipFilePath",
+                "description": "zip File Path",
+                "type": "string",
+                "defaultValue": "$s{env:OPEN_CLI_HOME}/script/compliance/enterprise2DC.csar",
+                "isOptional": false
+            },
+            {
+                "name": "timeout",
+                "description": "timeout for command to complete the given task in milliseconds",
+                "type": "string",
+                "defaultValue": "60000",
+                "isOptional": true
+            },
+            {
+                "name": "retrycount",
+                "description": "retry count for command",
+                "type": "digit",
+                "defaultValue": "1",
+                "isOptional": true
+            },
+            {
+                "name": "pushReportsToUrl",
+                "description": "push reports to url",
+                "type": "bool",
+                "defaultValue": "false",
+                "isOptional": true
+            },
+            {
+                "name": "reportsUrl",
+                "description": "url of reports",
+                "type": "url",
+                "defaultValue": "",
+                "isOptional": true
+            }
+        ],
+        "outputs": [
+            {
+                "name": "error_list",
+                "description": "list of errors",
+                "type": "string"
+            }
+        ]
+      }
+    ]
+  }
+},
+{
+  "request": {
+    "method" : "get",
+    "uri": "/v1/vtp/scenarios/edgeT/testsuites/testSuite2/testcases/compliance-check-22"
+  },
+  "response": {
+    "json": [
+      {
+        "testCaseName": "compliance-check-22",
+        "testSuiteName": "testSuite2",
+        "description": "MFContentTestCase test case.",
+        "author": "sharath bs.reddy@huawei.com",
+        "inputs": [
+            {
+                "name": "zipFilePath",
+                "description": "zip File Path",
+                "type": "string",
+                "defaultValue": "$s{env:OPEN_CLI_HOME}/script/compliance/enterprise2DC.csar",
+                "isOptional": false
+            },
+            {
+                "name": "timeout",
+                "description": "timeout for command to complete the given task in milliseconds",
+                "type": "string",
+                "defaultValue": "60000",
+                "isOptional": true
+            },
+            {
+                "name": "retrycount",
+                "description": "retry count for command",
+                "type": "digit",
+                "defaultValue": "1",
+                "isOptional": true
+            },
+            {
+                "name": "pushReportsToUrl",
+                "description": "push reports to url",
+                "type": "bool",
+                "defaultValue": "false",
+                "isOptional": true
+            },
+            {
+                "name": "reportsUrl",
+                "description": "url of reports",
+                "type": "url",
+                "defaultValue": "",
+                "isOptional": true
+            }
+        ],
+        "outputs": [
+            {
+                "name": "error_list",
+                "description": "list of errors",
+                "type": "string"
+            }
+        ]
+      }
+    ]
+  }
+},
+{
+  "request": {
+    "method" : "post",
+    "uri": "/v1/vtp/executions",
+    "queries" :
+      {
+        "requestId" : "ebaa5f21-ed68-4098-97a9-775ac8800f09"
+      }
+  },
+  "response": {
+    "json": [
+      {
+        "scenario": "EdgeGallery",
+        "testCaseName": "compliance-check-py",
+        "testSuiteName": "compliance",
+        "executionId": "ebaa5f21-ed68-4098-97a9-775ac8800f09-1621931450989",
+        "parameters": {
+            "file": "/home/root/enterprise2DC.csar"
+        },
+        "results": {
+            "error": {
+                "code": "0x6001",
+                "message": "Command compliance-check-py failed to execute, "
+            }
+        },
+        "status": "FAILED",
+        "startTime": "2021-05-25T08:30:50.928",
+        "endTime": "2021-05-25T08:30:51.043"
+      }
+    ]
+  }
+},
+{
+  "request":
+    {
+      "method" : "post",
+      "uri": "/v1/vtp/profiles",
+      "json": {
+          "name": "test-profile-1",
+          "properties": [
+            {
+              "scenario": "s1",
+              "testSuiteName": "ts1",
+              "testCaseName": "tc1",
+              "inputParameterName": "p1",
+              "value": "v1"
+            },
+            {
+              "scenario": "s2",
+              "testSuiteName": "ts1",
+              "inputParameterName": "p1",
+              "value": "v1"
+            },
+            {
+              "scenario": "s1",
+              "testCaseName": "tc1",
+              "inputParameterName": "p2",
+              "value": "v2"
+            },
+            {
+              "inputParameterName": "global-param-1",
+              "value": "v1"
+            },
+            {
+              "inputParameterName": "p2",
+              "value": null
+            },
+            {
+              "inputParameterName": null,
+              "value": "v1"
+            }
+          ]
+        }
+    },
+  "response" :
+    {
+      "status" : 200
+    }
+},
+{
+  "request":
+    {
+      "method" : "put",
+      "uri": "/v1/vtp/profiles/test-profile-1",
+      "json": {
+          "name": "test-profile-1",
+          "properties": [
+            {
+              "scenario": "s1-update",
+              "testSuiteName": "ts1",
+              "testCaseName": "tc1",
+              "inputParameterName": "p1",
+              "value": "v1"
+            },
+            {
+              "inputParameterName": "test123",
+              "value": "v1"
+            }
+          ]
+        }
+    },
+  "response" :
+    {
+      "status" : 200
+    }
+},
+{
+  "request":
+    {
+      "method" : "get",
+      "uri": "/v1/vtp/profiles"
+    },
+  "response": {
+    "json": [
+      {
+        "name": "onap-dublin",
+        "properties": []
+      },
+      {
+        "name": "test-profile-1",
+        "properties": []
+      }
+    ]
+  }
+},
+{
+  "request":
+    {
+      "method" : "delete",
+      "uri": "/v1/vtp/profiles/test-profile-1"
+    },
+  "response": {
+      "status" : 200
   }
 }]
