@@ -4,6 +4,10 @@
     "uri": "/v1/vtp/scenarios"
   },
   "response": {
+    "headers" :
+      {
+        "Access-Control-Allow-Origin" : "*"
+      },
     "json": [
       {
         "name": "edgeT",
@@ -22,6 +26,10 @@
     "uri": "/v1/vtp/executions"
   },
   "response": {
+    "headers" :
+      {
+        "Access-Control-Allow-Origin" : "*"
+      },
     "json": [
       {
           "scenario": "EdgeGallery",
@@ -60,6 +68,10 @@
     "uri": "/v1/vtp/executions/ebaa5f21-ed68-4098-97a9-775ac8800f09-1622027059843"
   },
   "response": {
+    "headers" :
+      {
+        "Access-Control-Allow-Origin" : "*"
+      },
     "json": [
       {
         "scenario": "EdgeGallery",
@@ -86,6 +98,10 @@
     "uri": "/v1/vtp/executions/ebaa5f21-ed68-4098-97a9-775ac8800f09-1622027154839"
   },
   "response": {
+    "headers" :
+      {
+        "Access-Control-Allow-Origin" : "*"
+      },
     "json": [
       {
         "scenario": "EdgeGallery",
@@ -112,6 +128,10 @@
     "uri": "/v1/vtp/scenarios/EdgeGallery/testsuites"
   },
   "response": {
+    "headers" :
+      {
+        "Access-Control-Allow-Origin" : "*"
+      },
     "json": [
       {
         "name": "compliance",
@@ -130,6 +150,10 @@
     "uri": "/v1/vtp/scenarios/edgeT/testsuites"
   },
   "response": {
+    "headers" :
+      {
+        "Access-Control-Allow-Origin" : "*"
+      },
     "json": [
       {
         "name": "testSuite1",
@@ -148,6 +172,10 @@
     "uri": "/v1/vtp/scenarios/EdgeGallery/testcases"
   },
   "response": {
+    "headers" :
+      {
+        "Access-Control-Allow-Origin" : "*"
+      },
     "json": [
       {
           "testCaseName": "compliance-check-py",
@@ -182,6 +210,10 @@
     "uri": "/v1/vtp/scenarios/edgeT/testcases"
   },
   "response": {
+    "headers" :
+      {
+        "Access-Control-Allow-Origin" : "*"
+      },
     "json": [
       {
           "testCaseName": "compliance-check-1",
@@ -217,6 +249,10 @@
     "uri": "/v1/vtp/scenarios/EdgeGallery/testsuites/compliance/testcases/compliance-check-py"
   },
   "response": {
+    "headers" :
+      {
+        "Access-Control-Allow-Origin" : "*"
+      },
     "json": [
       {
         "testCaseName": "compliance-check-py",
@@ -277,6 +313,10 @@
     "uri": "/v1/vtp/scenarios/EdgeGallery/testsuites/compliance/testcases/compliance-check-java"
   },
   "response": {
+    "headers" :
+      {
+        "Access-Control-Allow-Origin" : "*"
+      },
     "json": [
       {
         "testCaseName": "compliance-check-java",
@@ -337,6 +377,10 @@
     "uri": "/v1/vtp/scenarios/EdgeGallery/testsuites/testSuite0/testcases/compliance-check-sh"
   },
   "response": {
+    "headers" :
+      {
+        "Access-Control-Allow-Origin" : "*"
+      },
     "json": [
       {
         "testCaseName": "compliance-check-sh",
@@ -397,6 +441,10 @@
     "uri": "/v1/vtp/scenarios/EdgeGallery/testsuites/testSuite0/testcases/compliance-check-yml"
   },
   "response": {
+    "headers" :
+      {
+        "Access-Control-Allow-Origin" : "*"
+      },
     "json": [
       {
         "testCaseName": "compliance-check-yml",
@@ -457,6 +505,10 @@
     "uri": "/v1/vtp/scenarios/edgeT/testsuites/testSuite1/testcases/compliance-check-1"
   },
   "response": {
+    "headers" :
+      {
+        "Access-Control-Allow-Origin" : "*"
+      },
     "json": [
       {
         "testCaseName": "compliance-check-1",
@@ -517,6 +569,10 @@
     "uri": "/v1/vtp/scenarios/edgeT/testsuites/testSuite1/testcases/compliance-check-12"
   },
   "response": {
+    "headers" :
+      {
+        "Access-Control-Allow-Origin" : "*"
+      },
     "json": [
       {
         "testCaseName": "compliance-check-12",
@@ -577,6 +633,10 @@
     "uri": "/v1/vtp/scenarios/edgeT/testsuites/testSuite2/testcases/compliance-check-2"
   },
   "response": {
+    "headers" :
+      {
+        "Access-Control-Allow-Origin" : "*"
+      },
     "json": [
       {
         "testCaseName": "compliance-check-2",
@@ -637,6 +697,10 @@
     "uri": "/v1/vtp/scenarios/edgeT/testsuites/testSuite2/testcases/compliance-check-22"
   },
   "response": {
+    "headers" :
+      {
+        "Access-Control-Allow-Origin" : "*"
+      },
     "json": [
       {
         "testCaseName": "compliance-check-22",
@@ -698,9 +762,18 @@
     "queries" :
       {
         "requestId" : "ebaa5f21-ed68-4098-97a9-775ac8800f09"
+      },
+    "forms" :
+      {
+        "file" : "@enterprise2DC.csar",
+        "executions" : "[{\n          \"scenario\": \"EdgeGallery\",\n          \"testSuiteName\": \"compliance\",\n          \"testCaseName\": \"compliance-check-sh\",\n          \"parameters\": {\n          \"file\": \"/home/root/enterprise2DC.csar\"\n          }\n        }]"
       }
   },
   "response": {
+    "headers" :
+      {
+        "Access-Control-Allow-Origin" : "*"
+      },
     "json": [
       {
         "scenario": "EdgeGallery",
@@ -767,6 +840,10 @@
     },
   "response" :
     {
+      "headers" :
+        {
+          "Access-Control-Allow-Origin" : "*"
+        },
       "status" : 200
     }
 },
@@ -794,6 +871,10 @@
     },
   "response" :
     {
+      "headers" :
+        {
+          "Access-Control-Allow-Origin" : "*"
+        },
       "status" : 200
     }
 },
@@ -804,6 +885,10 @@
       "uri": "/v1/vtp/profiles"
     },
   "response": {
+    "headers" :
+      {
+        "Access-Control-Allow-Origin" : "*"
+      },
     "json": [
       {
         "name": "onap-dublin",
@@ -823,6 +908,35 @@
       "uri": "/v1/vtp/profiles/test-profile-1"
     },
   "response": {
+    "headers" :
+      {
+        "Access-Control-Allow-Origin" : "*"
+      },
       "status" : 200
+  }
+},
+{
+  "request":
+    {
+      "method" : "get",
+      "uri": "/v1/manager/testers"
+    },
+  "response": {
+    "headers" :
+      {
+        "Access-Control-Allow-Origin" : "*"
+      },
+    "json": [
+      {
+        "id": 1,
+        "iP": "172.17.0.4",
+        "port": 50051
+      },
+      {
+        "id": 2,
+        "iP": "172.17.0.5",
+        "port": 50051
+      }
+    ]
   }
 }]
