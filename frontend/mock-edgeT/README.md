@@ -1,26 +1,25 @@
-Mock HTTP server for edgeT
+edgeT 的模拟 HTTP 服务器
 ==========================
 
-1. Setup
+1. 设置
 --------
 
 ./setup.sh
 
 
-2. Run
+2.运行
 --------
 
 ./run.sh
 
 
-3. Stop
+3. 停止
 -------
 
 ./stop.sh
 
 
-4. Add required HTTP request response
+4.添加所需的HTTP请求响应
 -------------------------------------
 
-Edit mock.json with required mock responses by following https://github.com/dreamhead/moco/blob/master/moco-doc/apis.md 
-
+按照 https://github.com/dreamhead/moco/blob/master/moco-doc/apis.md 使用所需的模拟响应编辑 mock.json

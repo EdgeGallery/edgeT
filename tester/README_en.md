@@ -1,15 +1,16 @@
-EdgeT测试仪
+EdgeT Tester
 ============
 
-如何构建
+How to build
 ------------
 
-``
+```
 ./docker/build.sh
-``
+```
 
-如何构建示例测试用例
+How to build sample test case
 -------------------------------
-``
+```
 ./testcase/build.sh
-``
+```
+
