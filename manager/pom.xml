@@ -35,6 +35,35 @@
   </properties>
 
   <dependencies>
+    <dependency>
+    <groupId>org.glassfish.jersey.bundles</groupId>
+    <artifactId>jaxrs-ri</artifactId>
+    <version>2.13</version>
+  </dependency>
+   <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+
+<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-core</artifactId>
+     <version>5.2.12.Final</version>
+</dependency>
+
+
+        <dependency>
+    <groupId>com.vladmihalcea</groupId>
+    <artifactId>hibernate-types-52</artifactId>
+    <version>2.9.7</version>
+</dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+    
+ <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-annotations</artifactId>
+    <version>2.12.4</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
 	<dependency>
 		<groupId>com.sun.xml.bind</groupId>
 		<artifactId>jaxb-core</artifactId>
