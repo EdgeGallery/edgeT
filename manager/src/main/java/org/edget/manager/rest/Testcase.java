@@ -44,33 +44,11 @@ public class Testcase {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response handleGet(@QueryParam("scenario") String scenario, @QueryParam("testsuite") String testsuite,
 			@QueryParam("testcase") String testcase) {
-	
-		/*
-		 * String sql; Connection c = null; Statement stmt = null; JSONArray jsonarray =
-		 * new JSONArray();
-		 */
 
 		if (null == scenario || null == testsuite || null == testcase) {
 			throw new IllegalArgumentException("{\"error\":\"At least one parameter is invalid or not supplied\"}");
 		}
 
-		/*
-		 * sql = "SELECT * FROM testcase WHERE scenario='" + scenario +
-		 * "' AND testsuite='" + testsuite + "' AND testcase='" + testcase + "';";
-		 * ResultSet rs = SqlQuery.Select(sql);
-		 * 
-		 * try { while ( rs.next() ) { JSONObject obj=new JSONObject();
-		 * obj.put("id",rs.getInt("id")); obj.put("testerId", rs.getInt("tester_id"));
-		 * obj.put("scenario", rs.getString("scenario")); obj.put("testsuite",
-		 * rs.getString("testsuite")); obj.put("testcase", rs.getString("testcase"));
-		 * jsonarray.put(obj); } } catch ( Exception e ) { System.err.println(
-		 * e.getClass().getName()+": "+ e.getMessage() ); System.exit(0); }
-		 * 
-		 * GsonBuilder builder = new GsonBuilder(); builder.setPrettyPrinting();
-		 * 
-		 * Gson gson = builder.create(); TestCaseResult[] testcaseResult =
-		 * gson.fromJson(jsonarray.toString(), TestCaseResult[].class);
-		 */
 		List<TestCaseResult> testerCaseResult = new ArrayList<>();
 		SessionFactory sessionfatory = HibernateUtil.getSessionFactory();
 		Session session = sessionfatory.openSession();

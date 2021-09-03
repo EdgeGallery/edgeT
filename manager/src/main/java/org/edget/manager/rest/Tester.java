@@ -39,7 +39,6 @@ import javax.ws.rs.core.Response;
 
 import org.apache.commons.io.IOUtils;
 import org.edget.manager.db.HibernateUtil;
-import org.edget.manager.db.SqlQuery;
 import org.edget.manager.model.TestCase;
 import org.edget.manager.model.TesterResult;
 import org.hibernate.Criteria;
@@ -57,224 +56,150 @@ import com.vladmihalcea.hibernate.type.basic.Inet;
 
 @Path("/tester")
 public class Tester {
-@POST
-@Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
-public Response handlePost(@Context HttpServletRequest request) throws IOException {
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response handlePost(@Context HttpServletRequest request) throws IOException {
 
-	Gson g = new Gson();
-	String sql = "";
-    int tester_id = 0;
-    Set<TestCase> testCases = new HashSet<>();
-	InputStream input = request.getInputStream();
-    String reqParam = IOUtils.toString(input);
-    System.out.println(reqParam);
-    
-    JsonParser parser = new JsonParser();
-    JsonObject o = parser.parse(reqParam).getAsJsonObject();
-    
-    String str = g.toJson(o);
-    
-    JSONObject json = new JSONObject(reqParam);
+		Gson g = new Gson();
+		String sql = "";
+		int tester_id = 0;
+		Set<TestCase> testCases = new HashSet<>();
+		InputStream input = request.getInputStream();
+		String reqParam = IOUtils.toString(input);
+		System.out.println(reqParam);
 
-    String tester_ip = json.getString("ip");
-    String tester_port = json.getString("port");
-	JSONArray a = (JSONArray) json.getJSONArray("test_case_list");
-  	 for(int i = 0; i < a.length(); i++) 
-  	    {
-  		 	
-  	    	JSONObject list_entry = a.getJSONObject(i);
-  	    	TestCase testCase = new TestCase();
-  	    	testCase.setScenario(list_entry.getString("scenario"));
-  	    	testCase.setTestSuite(list_entry.getString("testsuite"));
-  	    	testCase.setTestCase(list_entry.getString("testcase"));
-  	    	testCases.add(testCase);
-  	    }
-    SessionFactory sessionfatory = HibernateUtil.getSessionFactory();
-   	Session session = sessionfatory.openSession();
-   	session.beginTransaction();
-   	org.edget.manager.model.Tester tester = new org.edget.manager.model.Tester();
-   	Inet inet = new Inet(tester_ip);
-   	tester.setIp(inet);
-   	tester.setPort(Integer.valueOf(tester_port));
-   	tester.setTestCases(testCases);
-   	session.save(tester);
-    session.getTransaction().commit();
-    return Response.ok(reqParam,MediaType.APPLICATION_JSON).build();
-   /*
-    sql = "INSERT INTO tester (ip, port) VALUES( '" + tester_ip + "'," +  tester_port + ");";
-    System.out.println(sql);
-    SqlQuery.Insert(sql);
+		JsonParser parser = new JsonParser();
+		JsonObject o = parser.parse(reqParam).getAsJsonObject();
 
-    sql = "SELECT id FROM tester WHERE ip='" + tester_ip + "' AND port='" + tester_port + "';";
-    System.out.println(sql);
-    ResultSet rs = SqlQuery.Select(sql);
-   	try {
-    while ( rs.next() ) {
-       tester_id = rs.getInt("id");
-    }
-	} catch ( Exception e ) {
-	       System.out.println(e.getClass().getName()+": "+ e.getMessage());
-	       System.exit(0);
-	 }
+		String str = g.toJson(o);
 
-    JSONArray a = (JSONArray) json.getJSONArray("test_case_list");
+		JSONObject json = new JSONObject(reqParam);
 
-    String scenario,testsuite,testcase;
-    for(int i = 0; i < a.length(); i++) 
-    {
-    	JSONObject list_entry = a.getJSONObject(i);
-    	scenario = list_entry.getString("scenario");
-    	testsuite = list_entry.getString("testsuite");
-    	testcase = list_entry.getString("testcase");
-        sql = "INSERT INTO testcase (TESTER_ID,SCENARIO,TESTSUITE,TESTCASE) VALUES( '" + tester_id + "','" + scenario + "','" + testsuite + "','" + testcase  + "');";
-        System.out.println(sql);
-        SqlQuery.Insert(sql);
-    }
+		String tester_ip = json.getString("ip");
+		String tester_port = json.getString("port");
+		JSONArray a = (JSONArray) json.getJSONArray("test_case_list");
+		for (int i = 0; i < a.length(); i++) {
 
-    return Response.ok(reqParam,MediaType.APPLICATION_JSON).build();
-  
-    return null;
-      */
-}
-
-@SuppressWarnings("unchecked")
-@GET
-@Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
-public Response handleGet() {
-	String sql;
-    JSONArray jsonarray = new JSONArray();
-   
-    //hibernate way start ---> Dinesh
-     List<TesterResult> testerResult = new ArrayList<>();
-	SessionFactory sessionfatory = HibernateUtil.getSessionFactory();
-	Session session = sessionfatory.openSession();
-	@SuppressWarnings("deprecation")
-	Criteria cr = session.createCriteria(org.edget.manager.model.Tester.class);
-	List<org.edget.manager.model.Tester> listTester = cr.list();
-	if(!listTester.isEmpty()) {
-		for(org.edget.manager.model.Tester k : listTester ) {
-			TesterResult result = new TesterResult();
-			result.setId(k.getId());
-			result.setName(k.getIp().getAddress());
-			result.setPort(k.getPort());
-			testerResult.add(result);
+			JSONObject list_entry = a.getJSONObject(i);
+			TestCase testCase = new TestCase();
+			testCase.setScenario(list_entry.getString("scenario"));
+			testCase.setTestSuite(list_entry.getString("testsuite"));
+			testCase.setTestCase(list_entry.getString("testcase"));
+			testCases.add(testCase);
 		}
-			
-			
-		
+		SessionFactory sessionfatory = HibernateUtil.getSessionFactory();
+		Session session = sessionfatory.openSession();
+		session.beginTransaction();
+		org.edget.manager.model.Tester tester = new org.edget.manager.model.Tester();
+		Inet inet = new Inet(tester_ip);
+		tester.setIp(inet);
+		tester.setPort(Integer.valueOf(tester_port));
+		tester.setTestCases(testCases);
+		session.save(tester);
+		session.getTransaction().commit();
+		return Response.ok(reqParam, MediaType.APPLICATION_JSON).build();
+
 	}
-	
-	return Response.ok(testerResult, MediaType.APPLICATION_JSON).build();
-	  //hibernate way end --> Dinesh
-    
-    //jdbc 
-	/*
-	 * sql = "SELECT * FROM tester;"; ResultSet rs = SqlQuery.Select(sql);
-	 * 
-	 * TesterResult[] testerResult = parseTesternRs(rs); return
-	 * Response.ok(testerResult, MediaType.APPLICATION_JSON).build();
-	 */
-	 
-}
 
-public TesterResult[] parseTesternRs(ResultSet rs) {
-   	JSONArray jsonarray = new JSONArray();
-   	  	try {
-    while ( rs.next() ) {
-    	   JSONObject obj=new JSONObject();
-    	   obj.put("id",rs.getInt("id"));
-    	   obj.put("ip", rs.getString("ip"));
-    	   obj.put("port", rs.getInt("port"));
-    	   jsonarray.put(obj);
-    	   }
-	} catch ( Exception e ) {
-	       System.out.println(e.getClass().getName()+": "+ e.getMessage());
-	       System.exit(0);
-	 }
+	@SuppressWarnings("unchecked")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response handleGet() {
+		String sql;
+		JSONArray jsonarray = new JSONArray();
 
-    GsonBuilder builder = new GsonBuilder();
-    builder.setPrettyPrinting();
+		List<TesterResult> testerResult = new ArrayList<>();
+		SessionFactory sessionfatory = HibernateUtil.getSessionFactory();
+		Session session = sessionfatory.openSession();
+		@SuppressWarnings("deprecation")
+		Criteria cr = session.createCriteria(org.edget.manager.model.Tester.class);
+		List<org.edget.manager.model.Tester> listTester = cr.list();
+		if (!listTester.isEmpty()) {
+			for (org.edget.manager.model.Tester k : listTester) {
+				TesterResult result = new TesterResult();
+				result.setId(k.getId());
+				result.setName(k.getIp().getAddress());
+				result.setPort(k.getPort());
+				testerResult.add(result);
+			}
 
-    Gson gson = builder.create();
-    TesterResult[] testerResult = gson.fromJson(jsonarray.toString(), TesterResult[].class);
-    return testerResult;
-}
+		}
 
-@GET
-@Path("{id}")
-@Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
-public Response getTesterById(@PathParam("id") String tester_id) {
-	/*
-	 * String sql; JSONObject obj=new JSONObject();
-	 * 
-	 * sql = "SELECT * FROM tester WHERE id=" + tester_id + ";"; ResultSet rs =
-	 * SqlQuery.Select(sql);
-	 * 
-	 * try { while ( rs.next() ) { obj.put("id",rs.getInt("id")); obj.put("ip",
-	 * rs.getString("ip")); obj.put("port", rs.getInt("port")); } } catch (
-	 * Exception e ) { System.err.println( e.getClass().getName()+": "+
-	 * e.getMessage() ); System.exit(0); }
-	 * 
-	 * GsonBuilder builder = new GsonBuilder(); builder.setPrettyPrinting();
-	 * 
-	 * Gson gson = builder.create(); TesterResult testerResult =
-	 * gson.fromJson(obj.toString(), TesterResult.class);
-	 */
-	  //hibernate way start ---> Dinesh
-   	SessionFactory sessionfatory = HibernateUtil.getSessionFactory();
-   	Session session = sessionfatory.openSession();
-    CriteriaBuilder builder = session.getCriteriaBuilder();
-    CriteriaQuery<org.edget.manager.model.Tester> query = builder.createQuery(org.edget.manager.model.Tester.class);
-    Root<org.edget.manager.model.Tester> root = query.from(org.edget.manager.model.Tester.class);
-    query.select(root).where(builder.equal(root.get("id"), Integer.valueOf(tester_id)));
-    Query<org.edget.manager.model.Tester> q= session.createQuery(query);
-    List<org.edget.manager.model.Tester> listTester = q.getResultList();
+		return Response.ok(testerResult, MediaType.APPLICATION_JSON).build();
 
-	TesterResult result = new TesterResult();
-	if(!listTester.isEmpty()) {
-		org.edget.manager.model.Tester tester = listTester.get(0);
-		result.setId(tester.getId());
-		result.setName(tester.getIp().getAddress());
-		result.setPort(tester.getPort());
 	}
-	
-	  //hibernate way end --> Dinesh
-	
 
-    
-    return Response.ok(result, MediaType.APPLICATION_JSON).build();
-}
+	public TesterResult[] parseTesternRs(ResultSet rs) {
+		JSONArray jsonarray = new JSONArray();
+		try {
+			while (rs.next()) {
+				JSONObject obj = new JSONObject();
+				obj.put("id", rs.getInt("id"));
+				obj.put("ip", rs.getString("ip"));
+				obj.put("port", rs.getInt("port"));
+				jsonarray.put(obj);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getClass().getName() + ": " + e.getMessage());
+			System.exit(0);
+		}
 
-@DELETE
-@Path("{id}")
-@Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
-public Response delTesterById(@PathParam("id") String tester_id) {
-	/*
-	 * String sql; sql = "DELETE FROM tester WHERE id=" + tester_id + ";";
-	 * SqlQuery.Insert(sql); sql = "DELETE FROM testcase WHERE id=" + tester_id +
-	 * ";"; SqlQuery.Insert(sql); return
-	 * Response.ok(MediaType.APPLICATION_JSON).build();
-	 */
-	
-	  //hibernate way start ---> Dinesh
-   	SessionFactory sessionfatory = HibernateUtil.getSessionFactory();
-   	Session session = sessionfatory.openSession();
-   	EntityManager em = session.getEntityManagerFactory().createEntityManager();
-   	org.edget.manager.model.Tester b = em.find(org.edget.manager.model.Tester.class, Integer.valueOf(tester_id));
-    if(b!=null) {
-    	
-    	em.getTransaction().begin();
-       	em.remove(b);
-        em.getTransaction().commit();
-    	
-    }
-   	
-	return Response.ok(MediaType.APPLICATION_JSON).build();
-	//hibernate way start ---> Dinesh
-}
+		GsonBuilder builder = new GsonBuilder();
+		builder.setPrettyPrinting();
+
+		Gson gson = builder.create();
+		TesterResult[] testerResult = gson.fromJson(jsonarray.toString(), TesterResult[].class);
+		return testerResult;
+	}
+
+	@GET
+	@Path("{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response getTesterById(@PathParam("id") String tester_id) {
+
+		SessionFactory sessionfatory = HibernateUtil.getSessionFactory();
+		Session session = sessionfatory.openSession();
+		CriteriaBuilder builder = session.getCriteriaBuilder();
+		CriteriaQuery<org.edget.manager.model.Tester> query = builder.createQuery(org.edget.manager.model.Tester.class);
+		Root<org.edget.manager.model.Tester> root = query.from(org.edget.manager.model.Tester.class);
+		query.select(root).where(builder.equal(root.get("id"), Integer.valueOf(tester_id)));
+		Query<org.edget.manager.model.Tester> q = session.createQuery(query);
+		List<org.edget.manager.model.Tester> listTester = q.getResultList();
+
+		TesterResult result = new TesterResult();
+		if (!listTester.isEmpty()) {
+			org.edget.manager.model.Tester tester = listTester.get(0);
+			result.setId(tester.getId());
+			result.setName(tester.getIp().getAddress());
+			result.setPort(tester.getPort());
+		}
+
+		return Response.ok(result, MediaType.APPLICATION_JSON).build();
+	}
+
+	@DELETE
+	@Path("{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response delTesterById(@PathParam("id") String tester_id) {
+
+		SessionFactory sessionfatory = HibernateUtil.getSessionFactory();
+		Session session = sessionfatory.openSession();
+		EntityManager em = session.getEntityManagerFactory().createEntityManager();
+		org.edget.manager.model.Tester b = em.find(org.edget.manager.model.Tester.class, Integer.valueOf(tester_id));
+		if (b != null) {
+
+			em.getTransaction().begin();
+			em.remove(b);
+			em.getTransaction().commit();
+
+		}
+
+		return Response.ok(MediaType.APPLICATION_JSON).build();
+
+	}
 
 }

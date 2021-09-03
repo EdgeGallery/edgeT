@@ -25,10 +25,8 @@ public class TestCase {
 	@Column(name = "ID", unique = true, nullable = false)
 	private Integer id;
 
-	
 	@ManyToOne
 	private Tester tester;
-
 
 	@Column(name = "SCENARIO")
 	private String scenario;
@@ -39,10 +37,10 @@ public class TestCase {
 	@Column(name = "TESTCASE")
 	private String testCase;
 
-	@OneToMany(cascade = CascadeType.ALL,orphanRemoval=true)
-	@JoinColumn(name="TESTCASE_ID")
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "TESTCASE_ID")
 	private Set<Execution> executions;
-	
+
 	public Tester getTester() {
 		return tester;
 	}
@@ -50,8 +48,6 @@ public class TestCase {
 	public void setTester(Tester tester) {
 		this.tester = tester;
 	}
-	 
-	
 
 	public Integer getId() {
 		return id;

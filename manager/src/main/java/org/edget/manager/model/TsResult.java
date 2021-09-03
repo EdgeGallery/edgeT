@@ -16,41 +16,41 @@ package org.edget.manager.model;
 import java.util.ArrayList;
 
 public class TsResult {
-	   private String testCaseName;
-	   private String testSuiteName;
-	   ArrayList<String> inputs=new ArrayList<String>();
-	   ArrayList<String> outputs=new ArrayList<String>();
+	private String testCaseName;
+	private String testSuiteName;
+	ArrayList<String> inputs = new ArrayList<String>();
+	ArrayList<String> outputs = new ArrayList<String>();
 
-	   public String getTestSuiteName() {
-	      return testSuiteName;
-	   }
+	public String getTestSuiteName() {
+		return testSuiteName;
+	}
 
-	   public void setTestSuiteName(String testSuiteName) {
-	      this.testSuiteName = testSuiteName;
-	   }
+	public void setTestSuiteName(String testSuiteName) {
+		this.testSuiteName = testSuiteName;
+	}
 
-	   public String getTestCaseName() {
-		      return testCaseName;
-	   }
+	public String getTestCaseName() {
+		return testCaseName;
+	}
 
-	   public void setTestCaseName(String testCaseName) {
-	      this.testCaseName = testCaseName;
-	   }
+	public void setTestCaseName(String testCaseName) {
+		this.testCaseName = testCaseName;
+	}
 
-	   public ArrayList<String> getInputs() {
-		      return inputs;
-	   }
+	public ArrayList<String> getInputs() {
+		return inputs;
+	}
 
-	   public void setInputs(ArrayList<String> inputs) {
-	      this.inputs = inputs;
-	   }
+	public void setInputs(ArrayList<String> inputs) {
+		this.inputs = inputs;
+	}
 
-	   public ArrayList<String> getOutputs() {
-		      return outputs;
-	   }
+	public ArrayList<String> getOutputs() {
+		return outputs;
+	}
 
-	   public void setOutputs(ArrayList<String> outputs) {
-	      this.outputs = outputs;
-	   }
+	public void setOutputs(ArrayList<String> outputs) {
+		this.outputs = outputs;
+	}
 
 }

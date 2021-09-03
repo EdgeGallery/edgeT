@@ -34,14 +34,13 @@ public class Tester {
 	@Column(name = "PORT")
 	private Integer port;
 
-	@OneToMany(cascade = CascadeType.ALL,orphanRemoval=true)
-	@JoinColumn(name="TESTER_ID")
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "TESTER_ID")
 	private Set<TestCase> testCases;
-	
-	@OneToMany(cascade = CascadeType.ALL,orphanRemoval=true)
-	@JoinColumn(name="TESTER_ID")
-	private Set<Execution> executions;
 
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "TESTER_ID")
+	private Set<Execution> executions;
 
 	public Set<TestCase> getTestCases() {
 		return testCases;

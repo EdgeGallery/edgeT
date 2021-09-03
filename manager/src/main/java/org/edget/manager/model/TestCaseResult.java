@@ -14,49 +14,49 @@
 package org.edget.manager.model;
 
 public class TestCaseResult {
-	   private String scenario;
-	   private String testsuite;
-	   private String testcase;
-	   private int testerId;
-	   private int id;
+	private String scenario;
+	private String testsuite;
+	private String testcase;
+	private int testerId;
+	private int id;
 
-	   public String getScenario() {
-	      return scenario;
-	   }
+	public String getScenario() {
+		return scenario;
+	}
 
-	   public void setScenario(String scenario) {
-	      this.scenario = scenario;
-	   }
+	public void setScenario(String scenario) {
+		this.scenario = scenario;
+	}
 
-	   public String getTestsuite() {
-		      return testsuite;
-	   }
+	public String getTestsuite() {
+		return testsuite;
+	}
 
-	   public void setTestsuite(String testsuite) {
-	      this.testsuite = testsuite;
-	   }
+	public void setTestsuite(String testsuite) {
+		this.testsuite = testsuite;
+	}
 
-	   public String getTestcase() {
-		      return testcase;
-	   }
+	public String getTestcase() {
+		return testcase;
+	}
 
-	   public void setTestcase(String testcase) {
-	      this.testcase = testcase;
-	   }
+	public void setTestcase(String testcase) {
+		this.testcase = testcase;
+	}
 
-	   public int getTesterId() {
-	      return testerId;
-	   }
+	public int getTesterId() {
+		return testerId;
+	}
 
-	   public void setTesterId(int testerId) {
-	      this.testerId = testerId;
-	   }
+	public void setTesterId(int testerId) {
+		this.testerId = testerId;
+	}
 
-	   public int getId() {
-		  return id;
-	   }
+	public int getId() {
+		return id;
+	}
 
-	   public void setId(int id) {
-		  this.id = id;
-	   }
+	public void setId(int id) {
+		this.id = id;
+	}
 }

@@ -14,14 +14,14 @@
 package org.edget.manager.model;
 
 public class TesterIdResult {
-	   private int testerId;
+	private int testerId;
 
-	   public int getTesterId() {
-	      return testerId;
-	   }
+	public int getTesterId() {
+		return testerId;
+	}
 
-	   public void setTesterId(int testerId) {
-	      this.testerId = testerId;
-	   }
+	public void setTesterId(int testerId) {
+		this.testerId = testerId;
+	}
 
 }
