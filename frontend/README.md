@@ -1,9 +1,9 @@
 # How to build
 ```
-npm build
+npm run build
 ```
 
-# How to install
+# How to run
 ```
-npm install serve
+npm run serve
 ```
