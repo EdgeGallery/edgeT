@@ -12,61 +12,41 @@ import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 
 public class HibernateUtil {
-	   private static SessionFactory sessionFactory;
-	    public static SessionFactory getSessionFactory() {
-	        if (sessionFactory == null) {
-	            try {
-	                Configuration configuration = new Configuration();
+	private static SessionFactory sessionFactory;
 
-	                // Hibernate settings equivalent to hibernate.cfg.xml's properties
-	                Properties settings = new Properties();
-	                settings.put(Environment.DRIVER, "org.postgresql.Driver");
-	                
-					
-					  settings.put(Environment.URL, "jdbc:postgresql://edget-db:5432/edgeT");
-					  settings.put(Environment.USER, "postgres"); settings.put(Environment.PASS,
-					  "123");
-					 
-					
-					 
-					   
-					
-					  
-						
-						/*
-						 * settings.put(Environment.URL,"jdbc:postgresql://127.0.0.1:5432/postgres");
-						 * settings.put(Environment.USER, "postgres");
-						 * settings.put(Environment.PASS,"root");
-						 */
-						 
-					
-	                
-	                
-	                
-	                settings.put(Environment.DIALECT, "org.hibernate.dialect.PostgreSQLDialect");
+	public static SessionFactory getSessionFactory() {
+		if (sessionFactory == null) {
+			try {
+				Configuration configuration = new Configuration();
 
-	                settings.put(Environment.SHOW_SQL, "true");
+				Properties settings = new Properties();
+				settings.put(Environment.DRIVER, "org.postgresql.Driver");
 
-	                settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
+				settings.put(Environment.URL, "jdbc:postgresql://edget-db:5432/edgeT");
+				settings.put(Environment.USER, "postgres");
+				settings.put(Environment.PASS, "123");
 
-	                settings.put(Environment.HBM2DDL_AUTO, "none");
+				settings.put(Environment.DIALECT, "org.hibernate.dialect.PostgreSQLDialect");
 
-	                configuration.setProperties(settings);
+				settings.put(Environment.SHOW_SQL, "true");
 
-	               configuration.addAnnotatedClass(Tester.class)
-	               				.addAnnotatedClass(TestCase.class)
-	               				.addAnnotatedClass(Execution.class);
+				settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 
-	                ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
-	                    .applySettings(configuration.getProperties()).build();
+				settings.put(Environment.HBM2DDL_AUTO, "none");
 
-	                sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-	            } catch (Exception e) {
-	                e.printStackTrace();
-	            }
-	        }
-	        return sessionFactory;
-	    }
+				configuration.setProperties(settings);
+
+				configuration.addAnnotatedClass(Tester.class).addAnnotatedClass(TestCase.class)
+						.addAnnotatedClass(Execution.class);
+
+				ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
+						.applySettings(configuration.getProperties()).build();
+
+				sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return sessionFactory;
 	}
-
-
+}
