@@ -14,41 +14,41 @@
 package org.edget.manager.model;
 
 public class ExecutionsResult {
-	   private int id;
-	   private int tester_id;
-	   private String execution_id;
-   	   private int testcase_id;
+	private int id;
+	private int tester_id;
+	private String execution_id;
+	private int testcase_id;
 
-	   public int getId() {
-	      return id;
-	   }
+	public int getId() {
+		return id;
+	}
 
-	   public void setId(int id) {
-	      this.id = id;
-	   }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-	   public int getTester_id() {
-	      return tester_id;
-	   }
+	public int getTester_id() {
+		return tester_id;
+	}
 
-	   public void setTester_id(int tester_id) {
-	      this.tester_id = tester_id;
-	   }
+	public void setTester_id(int tester_id) {
+		this.tester_id = tester_id;
+	}
 
-	   public String getExecution_id() {
-		  return execution_id;
-	   }
+	public String getExecution_id() {
+		return execution_id;
+	}
 
-	   public void setExecution_id(String execution_id) {
-		  this.execution_id = execution_id;
-	   }
+	public void setExecution_id(String execution_id) {
+		this.execution_id = execution_id;
+	}
 
-	   public int getTestcase_id() {
-		  return testcase_id;
-	   }
+	public int getTestcase_id() {
+		return testcase_id;
+	}
 
-	   public void setTestcase_id(int testcase_id) {
-		  this.testcase_id = testcase_id;
-	   }
+	public void setTestcase_id(int testcase_id) {
+		this.testcase_id = testcase_id;
+	}
 
 }

@@ -14,31 +14,31 @@
 package org.edget.manager.model;
 
 public class TesterResult {
-	   private String ip;
-	   private int port;
-	   private int id;
+	private String ip;
+	private int port;
+	private int id;
 
-	   public String getIP() {
-	      return ip;
-	   }
+	public String getIP() {
+		return ip;
+	}
 
-	   public void setName(String ip) {
-	      this.ip = ip;
-	   }
+	public void setName(String ip) {
+		this.ip = ip;
+	}
 
-	   public int getPort() {
-	      return port;
-	   }
+	public int getPort() {
+		return port;
+	}
 
-	   public void setPort(int port) {
-	      this.port = port;
-	   }
+	public void setPort(int port) {
+		this.port = port;
+	}
 
-	   public int getId() {
-		  return id;
-	   }
+	public int getId() {
+		return id;
+	}
 
-	   public void setId(int id) {
-		  this.id = id;
-	   }
+	public void setId(int id) {
+		this.id = id;
+	}
 }
